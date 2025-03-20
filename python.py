@@ -106,7 +106,7 @@ def setup_browser():
 
     return p, browser, context, page, random_device_name
 
-
+ 
 
 
 def search_google(page, keyword, device_name):
@@ -162,9 +162,7 @@ def search_google(page, keyword, device_name):
     time.sleep(1)
 
     # 📌 **GERÇEK KELİMEYİ HARF HARF YAZ (Mobil Klavyeyi Simüle Et)**
-    for char in keyword:
-        page.keyboard.press(char)
-        time.sleep(random.uniform(0.1, 0.3))
+    page.keyboard.type(keyword, delay=random.uniform(50, 150))
 
     time.sleep(random.uniform(2, 4))  
     page.keyboard.press("Enter")
@@ -205,5 +203,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
